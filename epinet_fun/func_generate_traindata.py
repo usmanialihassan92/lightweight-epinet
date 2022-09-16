@@ -19,27 +19,18 @@ def generate_traindata_for_train(traindata_all,traindata_label,input_size,label_
             boolmask_img6 (512x512)  bool // reflection mask for images[6]
             boolmask_img15 (512x512) bool // reflection mask for images[15]
 
-
      Generate traindata using LF image and disparity map
      by randomly chosen variables.
      1.  gray image: random R,G,B --> R*img_R + G*img_G + B*imgB 
      2.  patch-wise learning: random x,y  --> LFimage[x:x+size1,y:y+size2]
      3.  scale augmentation: scale 1,2,3  --> ex> LFimage[x:x+2*size1:2,y:y+2*size2:2]
-
-
-
-
-     
      
      output: traindata_batch_90d   (batch_size x input_size x input_size x len(Setting02_AngualrViews)) float32        
              traindata_batch_0d    (batch_size x input_size x input_size x len(Setting02_AngualrViews)) float32  
              traindata_batch_45d   (batch_size x input_size x input_size x len(Setting02_AngualrViews)) float32
              traindata_batch_m45d  (batch_size x input_size x input_size x len(Setting02_AngualrViews)) float32
-             traindata_batch_label (batch_size x label_size x label_size )                   float32
-
+             traindata_batch_label (batch_size x label_size x label_size )                              float32
     """
-    
-    
     
     """ initialize image_stack & label """ 
     traindata_batch_90d=np.zeros((batch_size,input_size,input_size,len(Setting02_AngualrViews)),dtype=np.float32)
@@ -49,23 +40,17 @@ def generate_traindata_for_train(traindata_all,traindata_label,input_size,label_
     
     traindata_batch_label=np.zeros((batch_size,label_size,label_size))
     
-    
-    
-    
     """ inital variable """
     start1=Setting02_AngualrViews[0]
     end1=Setting02_AngualrViews[-1]    
     crop_half1=int(0.5*(input_size-label_size))
-    
-    
- 
     
     """ Generate image stacks"""
     for ii in range(0,batch_size):
         sum_diff=0
         valid=0
 
-        while( sum_diff<0.01*input_size*input_size  or  valid<1 ): 
+        while(sum_diff < 0.01*input_size*input_size  or  valid<1 ): 
              
             """//Variable for gray conversion//"""
             rand_3color=0.05+np.random.rand(3)
@@ -73,8 +58,6 @@ def generate_traindata_for_train(traindata_all,traindata_label,input_size,label_
             R=rand_3color[0]
             G=rand_3color[1]
             B=rand_3color[2]
-            
-            
             
             """
                 We use totally 16 LF images,(0 to 15) 
@@ -89,8 +72,6 @@ def generate_traindata_for_train(traindata_all,traindata_label,input_size,label_
  
             image_id=np.random.choice(aa_arr)
 
-
-
             """
                 //Shift augmentation for 7x7, 5x5 viewpoints,.. //
                 Details in our epinet paper.
@@ -102,8 +83,6 @@ def generate_traindata_for_train(traindata_all,traindata_label,input_size,label_
                 ix_rd = 0
                 iy_rd = 0
                 
-
-            
             kk=np.random.randint(17)            
             if(kk<8):
                 scale=1
@@ -114,7 +93,7 @@ def generate_traindata_for_train(traindata_all,traindata_label,input_size,label_
                 
             idx_start = np.random.randint(0,512-scale*input_size)
             idy_start = np.random.randint(0,512-scale*input_size)    
-            valid=1           
+            valid=1
             """
                 boolmask: reflection masks for images(4,6,15)
             """
@@ -131,8 +110,8 @@ def generate_traindata_for_train(traindata_all,traindata_label,input_size,label_
                                          idy_start: idy_start+scale*input_size:scale])>0 ):
                         valid=0
                     
-            if(valid>0):      
-                seq0to8=np.array(Setting02_AngualrViews)+ix_rd    
+            if(valid>0):
+                seq0to8=np.array(Setting02_AngualrViews)+ix_rd
                 seq8to0=np.array(Setting02_AngualrViews[::-1])+iy_rd
                 
                 image_center=(1/255)*np.squeeze(R*traindata_all[image_id, idx_start: idx_start+scale*input_size:scale, idy_start: idy_start+scale*input_size:scale, 4+ix_rd, 4+iy_rd,0].astype('float32')+
@@ -150,12 +129,12 @@ def generate_traindata_for_train(traindata_all,traindata_label,input_size,label_
                  traindata_batch_m45d <-- RGBtoGray( traindata_all[random_index, scaled_input_size, scaled_input_size, 0to8,         0to8    ] )      
                  '''
                 traindata_batch_0d[ii,:,:,:]=np.squeeze(R*traindata_all[image_id:image_id+1, idx_start: idx_start+scale*input_size:scale, idy_start: idy_start+scale*input_size:scale, 4+ix_rd, seq0to8.tolist(),0].astype('float32')+
-                                                         G*traindata_all[image_id:image_id+1, idx_start: idx_start+scale*input_size:scale, idy_start: idy_start+scale*input_size:scale, 4+ix_rd, seq0to8.tolist(),1].astype('float32')+
-                                                         B*traindata_all[image_id:image_id+1, idx_start: idx_start+scale*input_size:scale, idy_start: idy_start+scale*input_size:scale, 4+ix_rd, seq0to8.tolist(),2].astype('float32'))
+                                                        G*traindata_all[image_id:image_id+1, idx_start: idx_start+scale*input_size:scale, idy_start: idy_start+scale*input_size:scale, 4+ix_rd, seq0to8.tolist(),1].astype('float32')+
+                                                        B*traindata_all[image_id:image_id+1, idx_start: idx_start+scale*input_size:scale, idy_start: idy_start+scale*input_size:scale, 4+ix_rd, seq0to8.tolist(),2].astype('float32'))
                 
                 traindata_batch_90d[ii,:,:,:]=np.squeeze(R*traindata_all[image_id:image_id+1, idx_start: idx_start+scale*input_size:scale, idy_start: idy_start+scale*input_size:scale, seq8to0.tolist(), 4+iy_rd,0].astype('float32')+
-                                                        G*traindata_all[image_id:image_id+1, idx_start: idx_start+scale*input_size:scale, idy_start: idy_start+scale*input_size:scale, seq8to0.tolist(), 4+iy_rd,1].astype('float32')+
-                                                        B*traindata_all[image_id:image_id+1, idx_start: idx_start+scale*input_size:scale, idy_start: idy_start+scale*input_size:scale, seq8to0.tolist(), 4+iy_rd,2].astype('float32'))
+                                                         G*traindata_all[image_id:image_id+1, idx_start: idx_start+scale*input_size:scale, idy_start: idy_start+scale*input_size:scale, seq8to0.tolist(), 4+iy_rd,1].astype('float32')+
+                                                         B*traindata_all[image_id:image_id+1, idx_start: idx_start+scale*input_size:scale, idy_start: idy_start+scale*input_size:scale, seq8to0.tolist(), 4+iy_rd,2].astype('float32'))
                 for kkk in range(start1,end1+1):
                     
                     traindata_batch_45d[ii,:,:,kkk-start1]=np.squeeze(R*traindata_all[image_id:image_id+1, idx_start: idx_start+scale*input_size:scale, idy_start: idy_start+scale*input_size:scale, (8)-kkk+ix_rd, kkk+iy_rd,0].astype('float32')+
