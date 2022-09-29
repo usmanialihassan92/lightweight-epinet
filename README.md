@@ -3,6 +3,7 @@ Ali Hassan, Marten Sjostrom, Tingting Zhang and Karen Egiazarian
 IEEE Conference on Multimedia Signal Processing (MMSP), Sept 2022 
 
 :page_facing_up:Summary: It is forked version of EPINET architecture paper, and we tried to compress it.
+
 :e-mail:Contact: ali.hassan@miun.se
 
 # Environments
