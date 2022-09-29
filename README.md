@@ -1,4 +1,5 @@
 # Light-Weight EPINET Architecture for Fast Light Field Disparity Estimation
+Summary: It is forked version of EPINET architecture paper, and we tried to compress it.
 
 Ali Hassan, Marten Sjostrom, Tingting Zhang and Karen Egiazarian
 
@@ -10,7 +11,7 @@ Contact: ali.hassan@miun.se
 # Environments
 
 - Python 3.7.1 and Tensorflow 2.10
-- `pip install imageio numpy tensorflow-gpu==2.4.0 keras matplotlib keras-flops model-profiler
+- Use `pip install imageio numpy tensorflow-gpu==2.4.0 keras matplotlib keras-flops model-profiler pandas` to install all required libraries.
 
 
 
