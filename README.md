@@ -9,8 +9,8 @@ Contact: ali.hassan@miun.se
 
 # Environments
 
-- Python3.5.2, Anaconda 4.2.0 (64-bit), Tensorflow 2.10
-- `pip install imageio` 
+- Python 3.7.1 and Tensorflow 2.10
+- `pip install imageio numpy tensorflow-gpu==2.4.0 keras matplotlib keras-flops model-profiler
 
 
 
