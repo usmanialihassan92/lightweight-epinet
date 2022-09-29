@@ -1,6 +1,6 @@
 # Light-Weight EPINET Architecture for Fast Light Field Disparity Estimation
 
-Ali Hassan, M°arten Sj¨ostr¨om, Tingting Zhang and Karen Egiazarian
+Ali Hassan, Marten Sjostrom, Tingting Zhang and Karen Egiazarian
 
 IEEE Conference on Multimedia Signal Processing (MMSP), Sept 2022 
 
