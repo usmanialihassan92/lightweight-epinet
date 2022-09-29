@@ -5,7 +5,6 @@ https://github.com/ckyrkou/Keras_FLOP_Estimator
 """
 
 import os.path
-import tempfile
 
 import tensorflow as tf
 from tensorflow.python.keras import Model, Sequential

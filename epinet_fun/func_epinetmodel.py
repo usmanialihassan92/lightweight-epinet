@@ -4,7 +4,6 @@ Created on Wed Mar 28 15:54:06 2018
 
 @author: shinyonsei2
 """
-from tensorflow.python.ops.image_ops_impl import psnr
 from tensorflow.keras import metrics
 from tensorflow.keras.optimizers import RMSprop
 from tensorflow.keras.models import Model, Sequential

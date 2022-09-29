@@ -176,7 +176,7 @@ if __name__ == '__main__':
             'additional/tomb',     'additional/tower',      'additional/town',     'additional/vinyl' ]
 
 
-    traindata_all,traindata_label=load_LFdata(dir_LFimages)
+    traindata_all,traindata_label = load_LFdata(dir_LFimages)
      
     traindata_90d,traindata_0d,traindata_45d,traindata_m45d,_ =generate_traindata512(traindata_all,traindata_label,Setting02_AngualrViews)
     # (traindata_90d, 0d, 45d, m45d) to validation or test

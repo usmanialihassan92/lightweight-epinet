@@ -61,6 +61,7 @@ def load_LFdata(dir_LFimages):
     traindata_label=np.zeros((len(dir_LFimages), 512, 512),np.float32)
     
     image_id=0
+    tmp = ""
     for dir_LFimage in dir_LFimages:
         #print(dir_LFimage)
         for i in range(81):
