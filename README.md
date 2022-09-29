@@ -1,19 +1,19 @@
 # Light-Weight EPINET Architecture for Fast Light Field Disparity Estimation
-Summary: It is forked version of EPINET architecture paper, and we tried to compress it.
-
 Ali Hassan, Marten Sjostrom, Tingting Zhang and Karen Egiazarian
-
 IEEE Conference on Multimedia Signal Processing (MMSP), Sept 2022 
 
-Contact: ali.hassan@miun.se
-
+:page_facing_up:Summary: It is forked version of EPINET architecture paper, and we tried to compress it.
+:e-mail:Contact: ali.hassan@miun.se
 
 # Environments
-
 - Python 3.7.1 and Tensorflow 2.10
+- 
 - Use `pip install imageio numpy tensorflow-gpu==2.4.0 keras matplotlib keras-flops model-profiler pandas` to install all required libraries.
 
-
+# Hardware
+- 2x NVIDIA GeForce RTX 2070 graphics cards
+- 64GB of Random Access Memory (RAM)
+- Ubuntu 18.04 operating system
 
 # Train the EPINET
  First, you need to download HCI Light field dataset from http://hci-lightfield.iwr.uni-heidelberg.de/.
