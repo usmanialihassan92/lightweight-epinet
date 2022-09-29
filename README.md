@@ -8,7 +8,6 @@ IEEE Conference on Multimedia Signal Processing (MMSP), Sept 2022
 
 # Environments
 - Python 3.7.1 and Tensorflow 2.10
-- 
 - Use `pip install imageio numpy tensorflow-gpu==2.4.0 keras matplotlib keras-flops model-profiler pandas` to install all required libraries.
 
 # Hardware
