@@ -1,20 +1,16 @@
-# EPINET: A Fully-Convolutional Neural Network using Epipolar Geometry for Depth from Light Field Images
-EPINET: A Fully-Convolutional Neural Network using Epipolar Geometry for Depth from Light Field Images
+# Light-Weight EPINET Architecture for Fast Light Field Disparity Estimation
 
-Changha Shin, Hae-Gon Jeon, Youngjin Yoon, In So Kweon and Seon Joo Kim 
+Ali Hassan, Marten Sjostrom, Tingting Zhang and Karen Egiazarian
 
-IEEE Conference on Computer Vision and Pattern Recognition (CVPR), Jun 2018 
+IEEE Conference on Multimedia Signal Processing (MMSP), Sept 2022 
 
-https://arxiv.org/pdf/1804.02379.pdf
-
-
-Contact: changhashin@yonsei.ac.kr
+Contact: ali.hassan@miun.se
 
 
 # Environments
 
-- Python3.5.2, Anaconda 4.2.0 (64-bit), Tensorflow 1.6.0 - 1.12.0
-- `pip install imageio` 
+- Python 3.7.1 and Tensorflow 2.10
+- `pip install imageio numpy tensorflow-gpu==2.4.0 keras matplotlib keras-flops model-profiler
 
 
 
@@ -35,4 +31,4 @@ Run `python EPINET_plusX_9conv22_save.py`
  - To test your own trained model from `python EPINET_train.py`, you need to modify the line 141-142 like below
 `path_weight='epinet_checkpoints/EPINET_train_ckp/iter0097_trainmse2.706_bp12.06.hdf5'`
 
-Last modified date: 11/29/2018
+Last modified date: 09/29/2022
