@@ -49,11 +49,10 @@ IEEE Conference on Multimedia Signal Processing (MMSP), Sept 2022
  - 5: EPINET-D
  - 6: EPINET-DC
 
- - and then run
+And then run
 `python EPINET_test`
 
- - To test your own trained model from `python EPINET_train.py`, you need to modify the line 141-142 like below
-`path_weight='epinet_checkpoints/EPINET_train_ckp/iter0097_trainmse2.706_bp12.06.hdf5'`
+ - To test your own trained model from `python EPINET_train.py`, you need to modify the model checkpoint path
 
 # Citation
 ```
