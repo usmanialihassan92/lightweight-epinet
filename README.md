@@ -20,14 +20,17 @@ IEEE Conference on Multimedia Signal Processing (MMSP), Sept 2022
  Unzip the LF dataset and move 'additional/, training/, test/, stratified/ ' into the 'hci_dataset/'.
 
  # Configuring EPINET variant
- The possible variant of EPINET are 
- Choose the desired variant of EPINET by importing desired model function at `Line # 16` of the `EPINET_train.py` code.
- `from epinet_fun.func_epinetmodel_VARIANT import define_epinet_FUNC as define_epinet`
- 
+ Choose the desired variant of EPINET by importing desired model function at `Line # 16` of the `EPINET_train.py` code. 
  For example, if you want to train Depthwise Separable Convolution based EPINET variant, change the `Line # 16` to:
  `from epinet_fun.func_epinetmodel_dwsc import define_epinet_dwsc as define_epinet`
 
- The tested variants which are available are: `_conv_ghost`, `_conv_sep`, `_dwsc, _ghost`, `_ghostdwsc`, `_sep_conv`
+ The available variants of EPINET are:
+  `func_epinetmodel_conv_ghost`,
+  `func_epinetmodel_conv_sep`,
+  `func_epinetmodel_dwsc`,
+  `func_epinetmodel_ghost`,
+  `func_epinetmodel_ghostdwsc`,
+  `func_epinetmodel_sep_conv`
  
  And then run
   `python EPINET_train.py`
