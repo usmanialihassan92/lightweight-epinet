@@ -15,11 +15,18 @@ IEEE Conference on Multimedia Signal Processing (MMSP), Sept 2022
 - 64GB of Random Access Memory (RAM)
 - Ubuntu 18.04 operating system
 
-# Train the EPINET
+# Preparing HCI 4D LF Dataset
  First, you need to download HCI Light field dataset from http://hci-lightfield.iwr.uni-heidelberg.de/.
  Unzip the LF dataset and move 'additional/, training/, test/, stratified/ ' into the 'hci_dataset/'.
+
+ # Configuring EPINET variant
+ The possible variant of EPINET are 
+ Choose the desired variant of EPINET by importing desired model function at Line # 16 of the EPINET_train.py code.
+ For example, if you want to train Depthwise Separable Convolution based EPINET variant, change the line to:
+  `from epinet_fun.func_epinetmodel_dwsc import define_epinet_dwsc as define_epinet
  
- And run `python EPINET_train.py`
+ And then run
+  `python EPINET_train.py`
  
  - Checkpoint files will be saved in 'epinet_checkpoints/EPINET_train_ckp/iterXXX_XX.hdf5', it could be used for test EPINET model.
  - Training process will be saved 'epinet_output/EPINET_train/train_XX.jpg'. (XX is iteration number). 
