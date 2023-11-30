@@ -73,6 +73,6 @@ IEEE Conference on Multimedia Signal Processing (MMSP), Sept 2022
 
 Last modified data: 2023/11/30.
 
-The code is modified and heavily borrowed from EPINET: [https://github.com/LIAGM/LFattNet](https://github.com/chshin10/epinet)
+The code is modified and heavily borrowed from EPINET: [https://github.com/chshin10/epinet]
 
 The code they provided is greatly appreciated.
